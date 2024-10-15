@@ -36,7 +36,7 @@ public class GPSData {
 	public boolean insert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
 		boolean inserted = false;
-		int time = Integer.parseInt(timeStr);
+		int time = GPSDataConverter.toSeconds(timeStr);
 		double latitude = Double.parseDouble(latitudeStr);
 		double longitude = Double.parseDouble(longitudeStr);
 		double elevation = Double.parseDouble(elevationStr);

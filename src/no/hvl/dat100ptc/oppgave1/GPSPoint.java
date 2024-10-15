@@ -68,7 +68,7 @@ public class GPSPoint {
 	
 	public String toString() {
 		
-		String timeTxt = Integer.toHexString(time);
+		String timeTxt = Integer.toString(time);
 		String latiTxt = Double.toString(latitude);
 		String longiTxt = Double.toString(longitude);
 		String elevTxt = Double.toString(elevation);
