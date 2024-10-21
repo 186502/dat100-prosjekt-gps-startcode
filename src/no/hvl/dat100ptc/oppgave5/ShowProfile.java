@@ -11,6 +11,7 @@ import no.hvl.dat100ptc.oppgave3.GPSUtils;
 import no.hvl.dat100ptc.oppgave4.GPSComputer;
 import static java.lang.Math.*;
 
+import java.awt.Color;
 
 import javax.swing.JOptionPane;
 
@@ -52,7 +53,7 @@ public class ShowProfile extends EasyGraphics {
 		int N = gpspoints.length;
 		int width = 2 * MARGIN + 3 * N;
 		int step = width/N;
-		
+		setColor(0,0,255);
 		for (int i = 0; i<gpspoints.length-1; i++) {
 				int y_base = y;
 				int x_base = x+(i*step);

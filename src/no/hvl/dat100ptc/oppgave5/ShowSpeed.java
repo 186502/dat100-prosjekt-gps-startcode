@@ -1,5 +1,7 @@
 package no.hvl.dat100ptc.oppgave5;
 
+import static java.lang.Math.round;
+
 import javax.swing.JOptionPane;
 
 import easygraphics.EasyGraphics;
@@ -39,10 +41,22 @@ public class ShowSpeed extends EasyGraphics {
 	
 	public void showSpeedProfile(int ybase) {
 		
-		int x = MARGIN,y;
-	
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		int x = MARGIN;
+		int y = ybase;
+		int width = 2 * MARGIN + 2 * gpscomputer.speeds().length;
+		int step = width/gpscomputer.speeds().length;
+		int avg_speed = (int)round(gpscomputer.averageSpeed());
+		
+		for (int i = 0; i<gpscomputer.speeds().length-1; i++) {
+			int y_base = y;
+			int x_base = x+(i*step);
+			int y_top = y-(int)round(gpscomputer.speeds()[i]);
+			int x_top = x+(i*step);
+			setColor(0,0,255);
+			drawLine(x_base, y_base, x_top, y_top);
+			}
+		setColor(0,255,0);
+		drawLine(x, y-avg_speed, MARGIN + 2 * gpscomputer.speeds().length, y-avg_speed);
 		
 	}
 }
