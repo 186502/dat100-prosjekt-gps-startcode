@@ -30,11 +30,14 @@ public class GPSComputer {
 	public double totalDistance() {
 
 		double distance = 0;
+		//throw new UnsupportedOperationException(TODO.method());
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO
-
+		// TODO som beregner den totale distansen (i meter) på ruten som GPS dataene i gpspoints-tabellen angir. 
+		//Dvs. metoden skal legge sammen avstanden (distanser) for etterfølgende punkter på ruten
+		for (int i = 0; i<gpspoints.length-1;i++) {
+			distance += GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+		}
+		return distance;
 	}
 
 	public double totalElevation() {
