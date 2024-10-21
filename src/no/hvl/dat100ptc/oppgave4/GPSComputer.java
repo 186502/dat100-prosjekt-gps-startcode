@@ -86,6 +86,7 @@ public class GPSComputer {
 		
 	}
 
+
 	// conversion factor m/s to miles per hour (mps)
 	public static final double MS = 2.23;
 
@@ -94,7 +95,6 @@ public class GPSComputer {
 		double met = 0;
 		
 		double speedmph = speed * MS;
-		double t = secs / 3600;
 		
 		double t = secs / 3600.00;
 		
