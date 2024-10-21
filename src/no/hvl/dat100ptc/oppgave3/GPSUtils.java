@@ -107,26 +107,25 @@ public class GPSUtils {
 	}
 
 	public static String formatTime(int secs) {
-
-		String timestr;
-		String TIMESEP = ":";
-
-		throw new UnsupportedOperationException(TODO.method());
 		
-		// TODO 
-		
+		int hours = secs / 3600;
+		int minutes = (secs % 3600) / 60;
+		int seconds = secs % 60;
+
+		String timestr = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+		return timestr;
 	}
 	
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
 
-		String str;
-
+		double d1 = (Math.round(d*100));
+		double dRound = d1/100;
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO
+		String dRoundTxt = String.valueOf(dRound);
+		String padded = String.format("%10s", dRoundTxt);
+		return padded;
 		
 	}
 }
