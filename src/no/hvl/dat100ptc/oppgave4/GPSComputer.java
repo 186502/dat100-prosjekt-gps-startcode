@@ -96,6 +96,8 @@ public class GPSComputer {
 		
 		double speedmph = speed * MS;
 		
+		double t = secs / 3600.00;
+		
 		if (speedmph < 10) {
 			met = 4;
 		} else if (speedmph < 12){
@@ -110,7 +112,7 @@ public class GPSComputer {
 			met = 16;
 		}
 
-		double kcal = met * weight * secs;
+		double kcal = met * weight * t;
 		return kcal;
 	}
 
@@ -126,9 +128,14 @@ public class GPSComputer {
 	private static double WEIGHT = 80.0;
 	
 	public void displayStatistics() {
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		System.out.println("==============================================");
+		System.out.println("Total Time     :" + totalTime());
+		System.out.println("Total distance :" + totalDistance());
+		System.out.println("Total elevation:" + totalElevation());
+		System.out.println("Max speed      :" + maxSpeed());
+		System.out.println("Average speed  :" + averageSpeed());
+		System.out.println("Energy         :" + totalKcal(WEIGHT));
+		System.out.println("==============================================");
 		
 	}
 
