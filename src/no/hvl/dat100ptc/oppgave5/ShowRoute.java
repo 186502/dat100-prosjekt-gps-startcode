@@ -24,7 +24,7 @@ public class ShowRoute extends EasyGraphics {
 	
 	public ShowRoute() {
 
-		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
+		String filename = JOptionPane.showInputDialog("GPS data filnavn (uten.csv): ");
 		gpscomputer = new GPSComputer(filename);
 
 		gpspoints = gpscomputer.getGPSPoints();
@@ -63,9 +63,17 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public void showRouteMap(int ybase) {
-
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		
+		
+		setColor(0, 255, 0);
+		for (int i = 0; i < gpspoints.length-1;i++) {
+			int lat = MARGIN + (int) ((gpspoints[i].getLatitude() - minlat) * ystep);
+			int lon = MARGIN + (int) ((gpspoints[i].getLongitude() - minlon) * xstep);
+			int latNext = MARGIN + (int) ((gpspoints[i + 1].getLatitude() - minlat) * ystep);
+			int lonNext = MARGIN + (int) ((gpspoints[i + 1].getLongitude() - minlon) * xstep);
+			
+			drawLine(lon, lat, lonNext, latNext);
+		}
 		
 	}
 
@@ -76,15 +84,19 @@ public class ShowRoute extends EasyGraphics {
 		setColor(0,0,0);
 		setFont("Courier",12);
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		String utskrift = gpscomputer.displayStatistics();
+		String[] utskriftSplit = utskrift.split("\n");
+		for (int i = 0; i<utskriftSplit.length; i++) {
+			drawString(utskriftSplit[i], TEXTDISTANCE, TEXTDISTANCE*i);
+		}
 		
+				
 	}
 
 	public void replayRoute(int ybase) {
 
 		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		
 	}
 

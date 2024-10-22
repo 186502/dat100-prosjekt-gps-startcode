@@ -127,16 +127,22 @@ public class GPSComputer {
 	
 	private static double WEIGHT = 80.0;
 	
-	public void displayStatistics() {
+	public String displayStatistics() {
+		String utskrift = "";
+		utskrift += "Total Time     :" + GPSUtils.formatDouble(totalTime())+"\n";
+		utskrift += "Total distance :" + GPSUtils.formatDouble(totalDistance())+"\n";
+		utskrift += "Total elevation:" + GPSUtils.formatDouble(totalElevation())+"\n";
+		utskrift += "Max speed      :" + GPSUtils.formatDouble(maxSpeed())+"\n";
+		utskrift += "Average speed  :" + GPSUtils.formatDouble(averageSpeed())+"\n";
+		utskrift += "Energy         :" + GPSUtils.formatDouble(totalKcal(WEIGHT))+"\n";
+		return utskrift;
+	}
+	
+	public void printDisplayStatistics() {
 		System.out.println("==============================================");
-		System.out.println("Total Time     :" + totalTime());
-		System.out.println("Total distance :" + totalDistance());
-		System.out.println("Total elevation:" + totalElevation());
-		System.out.println("Max speed      :" + maxSpeed());
-		System.out.println("Average speed  :" + averageSpeed());
-		System.out.println("Energy         :" + totalKcal(WEIGHT));
+		System.out.println(displayStatistics());
 		System.out.println("==============================================");
-		
+
 	}
 
 }
